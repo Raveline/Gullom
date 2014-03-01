@@ -3,6 +3,8 @@ This a fairly basic Meme generator, with massive room for improvement."""
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
+from datetime import datetime
+import os.path
 
 impact = "/usr/share/fonts/truetype/msttcorefonts/Impact.ttf"
 
@@ -10,15 +12,20 @@ class MemeGenerator(object):
     START_SIZE = 48
     def __init__(self, image):
         self.img = Image.open(image)
+        self.extension = os.path.splitext(image)[1]
         self.width = self.img.size[0]
         self.height = self.img.size[1]
         self.maxWidth = self.width - 15
 
-    def add_text(self, text1, text2, outname):
+    def add_text(self, text1, text2, path, number):
         self.draw = ImageDraw.Draw(self.img)
         self.handle_text(5, text1)
-        self.handle_text(self.height - 50, text2)
-        self.img.save(outname)
+        self.handle_text(self.height - 60, text2)
+        self.outname = datetime.now().strftime("%d%m%Y") + "-" + str(number) + self.extension
+        self.img.save(path + self.outname)
+
+    def get_file_name(self):
+        return self.outname
 
     def handle_text(self, y, text):
         font = ImageFont.truetype(impact, self.START_SIZE)
