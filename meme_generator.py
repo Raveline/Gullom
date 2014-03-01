@@ -28,11 +28,13 @@ class MemeGenerator(object):
         return self.outname
 
     def handle_text(self, y, text):
-        font = ImageFont.truetype(impact, self.START_SIZE)
-        while font.getsize(text)[0] > self.maxWidth and self.START_SIZE > 16:
-            font = ImageFont.truetype(impact, self.START_SIZE)
+        current_size = self.START_SIZE
+        font = ImageFont.truetype(impact, current_size)
+        while font.getsize(text)[0] > self.maxWidth and current_size > 16:
+            current_size = current_size - 1
+            font = ImageFont.truetype(impact, current_size)
         # Ok, too long...
-        if self.START_SIZE < 16 and textIs:
+        if current_size < 16 and textIs:
             font = ImageFont.truetype(impact, 16)
             if text_is_cuttable(text):
                 text_displayed = cut_text(text)
@@ -40,7 +42,7 @@ class MemeGenerator(object):
                 handle_text(y + font.getsize(text)[1], text_diplayed[1], 16)
                 # If text is not cuttable, we do nothing : we're doomed. 
                 # TODO : add some exception, this might be Python, but we're not animals.
-                # We found the right size, nice
+        # We found the right size, nice
         else:
             x = 15 + (self.maxWidth / 2) - (font.getsize(text)[0] / 2)
 
@@ -65,3 +67,8 @@ def cut_text(text):
     t = text.split(' ')
     middle = len(text_diplayed)/2
     return [t[len/2:], t[:len/2]]
+
+if __name__ == "__main__":
+    mg = MemeGenerator("/home/webuser/Gullom/static/storedmemes/0x1.jpg")
+    mg.add_text("LONG LONG LONG STRING", "Y U NO WORK AT ALL ?", "/home/webuser/Gullom/static/meme", "100")
+
