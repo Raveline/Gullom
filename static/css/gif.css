@@ -1,0 +1,146 @@
+body {
+    margin:0;
+    background-color:#BBD2E1;
+}
+
+.title {
+    background-color:#CC0033;
+    font-size:1.7em;
+    font-weight:bold;
+    font-family:Helvetica;
+    padding:.4em;
+    text-align:center;
+    color:white;
+}
+
+.title-text
+{
+    border-bottom:dashed 4px #fff;
+}
+
+.upper {
+    margin:0;
+    background-color:#0099CC;
+    font-size:1.2em;
+    padding:1.5em;
+    color:#fff;
+}
+
+.small-menu {
+    margin-left:auto;
+    text-align:center;
+}
+
+ul {
+    list-style-type:none;
+    margin:0;
+}
+
+.upper ul li {
+    display:inline;
+    background-color:#CC0033;
+    border-radius:8px;
+    padding:.5em;
+    margin: 0em .8em 0em .8em;
+}
+
+ul li {
+    display:inline;
+    background-color:#CC0033;
+    border-radius:7px;
+    padding.5em;
+    margin: 0em .8em 0em .8em;
+    color:#fff;
+}
+
+ul li.selected {
+    background-color:#FFF;
+    color:#CC0033;
+}
+
+ul li.deletable {
+    background-color:#000;
+    color:#FFF;
+}
+
+div.gif {
+    display:inline-block;
+    background-color:#0099CC;
+    border-radius:12px;
+    margin:.2em .5em .2em .5em;
+    padding:.3em;
+}
+
+ul li.single-gif {
+    background-color:#0099CC;
+    border-radius:12px;
+}
+
+.gif-tags, .gif-tags ul {
+    display:inline;
+}
+
+.middle {
+    margin:0;
+    background-color:#00CC99;
+    padding:1.5em;
+    font-size:1.2em;
+    color:#fff;
+    text-align:center;
+}
+
+.gif-form {
+    width:50%;
+    margin:auto;
+    margin-top:2em;
+    border:solid 2px;
+}
+
+form {
+    padding:.5em;
+    width:100%;
+}
+
+.table 
+{
+    width:100%;
+    display:table;
+}
+
+.form-line {
+    display:table-row;
+}
+
+.table label, .table input {
+    display:table-cell;
+}
+
+.table label {
+    width:20%;
+}
+
+.table input {
+    width:50%;
+}
+
+.form-title {
+    font-size:1.3em;
+    color:#FFF;
+    background-color:#CC0033;
+    width:100%;
+    text-align:center;
+}
+
+a, a:visited, a:focus {
+    color:#FFF;
+}
+
+.nope {
+    background-color:red;
+    color:white;
+    font-size:1.1em;
+    text-align:center;
+}
+
+.main {
+}
