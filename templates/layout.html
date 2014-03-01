@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/gif.css') }}" media="screen"/>
+    </head>
+    <script src="{{ url_for('static', filename='js/jquery-1.10.2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/gullom.js') }}">
+    </script>
+    <script>
+    {% if session.logged_in %}
+    $(document).ready(function() {
+    Gullom.init("{{ url_for('add_tag') }}", 
+                "{{ url_for('discriminate') }}", 
+                "{{ url_for('add_gif') }}",
+                "{{ url_for('post_meme') }}",
+                "{{ url_for('render_meme') }}");
+    });
+    {% endif %}
+    </script>
+    <body>
+            <div class="title">
+                <span class="title-text"><a href="{{ url_for('pick') }}">&lt;&lt;GULLOM&gt;&gt;</a></span>
+            </div>
+        {% if session.logged_in %}
+        <div class="upper">
+            <div class="small-menu">
+            <ul>
+                <li><a href="{{ url_for('pick') }}">Pick a gif</a></li>
+                <li><a href="{{ url_for('add') }}">Add a gif</a></li>
+                <li><a href="{{ url_for('add_meme') }}">Add a meme</a></li>
+                <li><a href="{{ url_for('create_meme') }}">Create a meme</a></li>
+                <li><a href="{{ url_for('stats') }}">Stats</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </div>
+        </div>
+        {% endif %}
+        {% if session.logged_in %} 
+        <div class="middle">
+            <ul id="every-tags">
+            {% for tag in tags %}
+            <li class="tag" id="{{tag.tagid}}">{{ tag.name }}</a></li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+        <div class="main">
+            {% block body %} {% endblock %}
+        </div>
+    </body>
+</html>

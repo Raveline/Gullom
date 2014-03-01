@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="gif-form">
+    <div class="form-title">ADD A MEME</div>
+    <form>
+    <div class="table">
+    <div class="form-line">
+        <label for="url">URL :</label>
+        <input type="text" name="url"/>
+    </div>
+    <div class="form-line">
+        <label for="name">Name :</label>
+        <input type="text" name="name"/>
+    </div>
+    <div class="form-line">
+        <label for="text1">Text default 1 :</label>
+        <input type="text" name="text1" maxlength="150"/>
+    </div>
+    <div class="form-line">
+        <label for="text2">Text default 2 :</label>
+        <input type="text" name="text2" maxlength="150"/>
+    </div>
+    <input type="submit" value="send"/>
+    </div>
+</form>
+</div>
+</div>
+<script>
+    Gullom.memeadd_mode();
+</script>
+{% endblock %}

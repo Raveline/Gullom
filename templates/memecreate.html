@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="gif-form">
+    <div class="form-title">CREATE A MEME</div>
+    <form>
+    <div class="table">
+    <div class="form-line">
+        <select name="meme">
+            {%for m in memes %}
+            <option value="{{m.mfile}}" text1="{{m.text1}}" text2="{{m.text2}}">{{m.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-line">
+        <label for="text1">Upper line :</label>
+        <input type="text" name="text1" maxlength="150"/>
+    </div>
+    <div class="form-line">
+        <label for="text2">Lower line :</label>
+        <input type="text" name="text2" maxlength="150"/>
+    </div>
+    <input type="submit" value="send"/>
+    </div>
+    <img id="currentMeme"/>
+</form>
+</div>
+</div>
+<script>
+    Gullom.meme_mode();
+</script>
+{% endblock %}

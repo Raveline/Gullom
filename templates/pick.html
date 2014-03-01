@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="gifs-list">
+    {% for gif in gifs %}
+        <div class="gif">
+            <a href="{{gif.path}}">{{ gif.name }}</a>
+            <div class="gif-tags">
+                <ul>
+                    {% for tag in gif.tags %}
+                        <li>{{tag}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</div>
+<script>
+    Gullom.pick_mode();
+</script>
+{% endblock %}
